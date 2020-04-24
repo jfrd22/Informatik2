@@ -1,0 +1,93 @@
+
+// Pointer Repetition
+
+#include <stdio.h>
+
+void main(void)
+{
+    int x = 100;
+    int b = 0;
+    int v = 102;
+
+    int *y;
+    int *z = NULL;
+    y = &x;
+    z = y;
+    b = *z;
+    *z = v;
+} 
+
+// Streams Input/Output
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(void) {
+    
+    int x = 0;
+    
+    fscanf(stdin, "%d", &x);
+    fprintf(stdout, "Hallo Welt\n");
+
+    scanf("%i", &x);
+    printf("Hallo Welt\n");
+}
+
+// Write to file
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+FILE *fp;
+int i;
+
+void main(void)
+{
+
+    fp = fopen("abc.txt", "w");
+
+    if (fp == NULL) {
+        printf("Datei konnte nicht geoeffnet werden.\n");
+    }
+    else {
+        for (i = 0; i < 26; i++) {
+            fputc(i + 65, fp);
+        }
+
+        fputc(10, fp);
+        fclose(fp);
+    }
+
+}
+
+// Read from file
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+FILE *fp;
+int i;
+
+void main(void)
+{
+
+    fp = fopen("abc.txt", "r");
+
+    if (fp == NULL) {
+        printf("Datei konnte nicht geoeffnet werden.\n");
+    }
+    else {
+        // komplette Datei zeichenweise ausgeben
+	      while((temp = fgetc(fp))!=EOF) {
+	        	printf("%c ", temp);
+	      }
+        
+        fclose(fp);
+    }
+
+}
